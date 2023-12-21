@@ -1,17 +1,20 @@
 import ScreenSpliter from "./components/ScreenSpliter";
 
-const LeftSideComponent = () => {
-  return <h2>Iam Left Component</h2>;
+const LeftSideComponent = ({ title }: { title: string }) => {
+  return <h2 style={{ backgroundColor: "blue" }}>Iam {title} Component</h2>;
 };
 
-const RightSideComponent = () => {
-  return <h2>Iam Right Component</h2>;
+const RightSideComponent = ({ title }: { title: string }) => {
+  return <h2 style={{ backgroundColor: "crimson" }}>Iam {title} Component</h2>;
 };
 
 function App() {
   return (
     <>
-      <ScreenSpliter Left={LeftSideComponent} Right={RightSideComponent} />
+      <ScreenSpliter leftWidth={1} rightWidth={2}>
+        <LeftSideComponent title="Left" />
+        <RightSideComponent title="Right" />
+      </ScreenSpliter>
     </>
   );
 }

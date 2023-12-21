@@ -1,25 +1,34 @@
+import React from "react";
+
 interface ScreenSpliterProps {
-  Left: React.ComponentType;
-  Right: React.ComponentType;
+  children: React.ReactNode;
+  leftWidth: number;
+  rightWidth: number;
 }
 import { styled } from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  gap: 10px;
 `;
 
 const Panel = styled.div`
-  flex: 1;
+  flex: ${(p: any) => p.flex};
 `;
-const ScreenSpliter = ({ Left, Right }: ScreenSpliterProps) => {
+const ScreenSpliter = ({
+  children,
+  leftWidth = 1,
+  rightWidth = 1,
+}: ScreenSpliterProps) => {
+  const [left, right] = React.Children.toArray(children) as [
+    React.ReactElement,
+    React.ReactElement
+  ];
+
   return (
     <Container>
-      <Panel>
-        <Left />
-      </Panel>
-      <Panel>
-        <Right />
-      </Panel>
+      <Panel flex={leftWidth}> {left}</Panel>
+      <Panel flex={rightWidth}>{right}</Panel>
     </Container>
   );
 };
