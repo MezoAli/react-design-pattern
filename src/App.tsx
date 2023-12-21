@@ -1,9 +1,17 @@
-import "./App.css";
+import ScreenSpliter from "./components/ScreenSpliter";
+
+const LeftSideComponent = () => {
+  return <h2>Iam Left Component</h2>;
+};
+
+const RightSideComponent = () => {
+  return <h2>Iam Right Component</h2>;
+};
 
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <ScreenSpliter Left={LeftSideComponent} Right={RightSideComponent} />
     </>
   );
 }
