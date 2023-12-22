@@ -1,20 +1,15 @@
-import ScreenSpliter from "./components/ScreenSpliter";
-
-const LeftSideComponent = ({ title }: { title: string }) => {
-  return <h2 style={{ backgroundColor: "blue" }}>Iam {title} Component</h2>;
-};
-
-const RightSideComponent = ({ title }: { title: string }) => {
-  return <h2 style={{ backgroundColor: "crimson" }}>Iam {title} Component</h2>;
-};
+import SmallAuthorListItem from "./components/authors/SmallListItem";
+import RegularList from "./components/lists/RegularList";
+import { authors } from "./data/authors";
 
 function App() {
   return (
     <>
-      <ScreenSpliter leftWidth={1} rightWidth={2}>
-        <LeftSideComponent title="Left" />
-        <RightSideComponent title="Right" />
-      </ScreenSpliter>
+      <RegularList
+        items={authors}
+        ItemComponent={SmallAuthorListItem}
+        sourceName="author"
+      />
     </>
   );
 }
