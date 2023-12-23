@@ -1,6 +1,6 @@
 import { AuthorsType } from "../data/authors";
 
-export const UserInfo = ({ user }: { user: AuthorsType }) => {
+export const UserInfo = ({ user }: { user: AuthorsType | null }) => {
   const { name, age, country, books } = user || {};
   return user ? (
     <>
@@ -9,7 +9,7 @@ export const UserInfo = ({ user }: { user: AuthorsType }) => {
       <p>Country: {country}</p>
       <h2>Books</h2>
       <ul>
-        {books.map((book) => (
+        {books?.map((book) => (
           <li key={book}> {book} </li>
         ))}
       </ul>
