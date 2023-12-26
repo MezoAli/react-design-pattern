@@ -3,6 +3,7 @@
 // }>;
 
 type ButtonProps = React.ComponentPropsWithoutRef<"button">;
+type DivProps = React.ComponentPropsWithoutRef<"div">;
 
 const Button = ({ children, onClick, type }: ButtonProps) => {
   return (
@@ -11,3 +12,8 @@ const Button = ({ children, onClick, type }: ButtonProps) => {
     </button>
   );
 };
+export const Div = ({ children }: DivProps) => {
+  return <div>{children}</div>;
+};
+
+export default Button;

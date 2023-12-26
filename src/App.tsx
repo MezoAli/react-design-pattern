@@ -1,5 +1,6 @@
 import Card from "./components/card";
 import "./App.css";
+import Button from "./components/button/button";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <p>This is the second element.</p>
         </Card>
       </Card>
+      <Button onClick={() => console.log("Hi")}>Click Me</Button>
     </main>
   );
 }
