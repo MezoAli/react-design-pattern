@@ -12,25 +12,25 @@ const CurrentUserLoader: React.FC<CurrentUserLoaderProps> = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [user, setUser] = useState<Record<string, any>>({
-    name: "Sarah Waters",
-    age: 55,
-    country: "United Kingdom",
-    books: ["Fingersmith", "The Night Watch"],
-  });
+  const [user, setUser] = useState({});
   //   console.log(user);
 
   useEffect(() => {
     const getUser = async () => {
       try {
         const response = await axios.get("/current-user");
+        console.log(response);
+
         setUser(response.data);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
     };
 
-    // getUser();
+    console.log(React.Children.toArray(children));
+    console.log(children);
+
+    getUser();
   }, []);
   return (
     <>

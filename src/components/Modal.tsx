@@ -19,7 +19,7 @@ const ModalContent = styled.div`
   background-color: white;
   color: black;
 `;
-const Modal = ({ children }: { children: React.ReactNode }) => {
+const Modal = ({ children }: { children: React.PropsWithChildren }) => {
   const [show, setShow] = useState(false);
   return (
     <>
