@@ -1,16 +1,23 @@
-type TestUnionsProps =
+type MainMessage =
   | {
       message: "with-code";
       code: number;
     }
   | {
       message: "no-code";
+      // data: {};
+      data: Record<string, number>;
     };
+
+type TestUnionsProps = MainMessage & {
+  btnColor: string;
+};
+
 const TestUnions = () => {
   return (
     <div>
-      <Alert message="with-code" code={122} />
-      <Alert message="no-code" />
+      <Alert message="with-code" code={122} btnColor="crimson" />
+      <Alert message="no-code" btnColor="blue" data={{}} />
     </div>
   );
 };
