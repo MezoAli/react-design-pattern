@@ -5,7 +5,7 @@ export interface AuthorsType {
   books: string[];
 }
 
-export const authors: AuthorsType[] = [
+export const authors = [
   {
     name: "Sarah Waters",
     age: 55,
@@ -24,4 +24,4 @@ export const authors: AuthorsType[] = [
     country: "Nigeria",
     books: ["Half of a Yellow Sun", "Americanah"],
   },
-];
+] satisfies AuthorsType[];
