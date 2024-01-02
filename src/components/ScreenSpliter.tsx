@@ -20,15 +20,19 @@ const ScreenSpliter = ({
   leftWidth = 1,
   rightWidth = 1,
 }: ScreenSpliterProps) => {
-  const [Left, Right] = React.Children.toArray(children) as [
-    React.ReactElement,
-    React.ReactElement
+  const [Left, Right] = React.Children.toArray(children) as unknown as [
+    React.ComponentType,
+    React.ComponentType
   ];
 
   return (
     <Container>
-      <Panel flex={leftWidth}> {Left}</Panel>
-      <Panel flex={rightWidth}>{Right}</Panel>
+      <Panel flex={leftWidth}>
+        <Left />
+      </Panel>
+      <Panel flex={rightWidth}>
+        <Right />
+      </Panel>
     </Container>
   );
 };

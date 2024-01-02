@@ -1,11 +1,15 @@
 import { AuthorsType } from "../../data/authors";
 import { BooksType } from "../../data/books";
 
-interface RegularListProps {
-  items: AuthorsType[] | BooksType[];
-  sourceName: "author" | "book";
-  ItemComponent: any;
-}
+type RegularListProps = (
+  | {
+      items: BooksType[];
+      sourceName: "book";
+    }
+  | { items: AuthorsType[]; sourceName: "author" }
+) & {
+  ItemComponent: React.ComponentType | any;
+};
 
 const RegularList = ({
   items,

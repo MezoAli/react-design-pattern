@@ -18,7 +18,7 @@ const CurrentUserLoader: React.FC<CurrentUserLoaderProps> = ({
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get("/current-user");
+        const response = await axios.get("/api/current-user");
         console.log(response);
 
         setUser(response.data);

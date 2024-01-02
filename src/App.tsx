@@ -1,8 +1,16 @@
 import "./App.css";
-import ShoppingCard from "./components/shopping-cart/shopping-card";
+import CurrentUserLoader from "./components/CurrentUserLoader";
+import { UserInfo } from "./components/user-info";
 
 function App() {
-  return <ShoppingCard />;
+  return (
+    <>
+      <h1>Hello World</h1>
+      <CurrentUserLoader>
+        <UserInfo />
+      </CurrentUserLoader>
+    </>
+  );
 }
 
 export default App;

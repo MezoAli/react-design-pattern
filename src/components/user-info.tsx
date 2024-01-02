@@ -1,6 +1,6 @@
 import { AuthorsType } from "../data/authors";
 
-export const UserInfo = ({ user }: { user: AuthorsType | null }) => {
+export const UserInfo = ({ user }: { user?: AuthorsType | null }) => {
   const { name, age, country, books } = user || {};
   return user ? (
     <>
