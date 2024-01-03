@@ -1,6 +1,6 @@
 import { BooksType } from "../data/books";
 
-export const BookInfo = ({ book }: { book: BooksType }) => {
+export const BookInfo = ({ book }: { book?: BooksType }) => {
   const { name, price, title, pages } = book || {};
 
   return book ? (

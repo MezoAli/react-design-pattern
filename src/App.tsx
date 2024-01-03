@@ -1,15 +1,18 @@
 import "./App.css";
-import CurrentUserLoader from "./components/CurrentUserLoader";
-import UserLoader from "./components/UserLoader";
+import GenericLoader from "./components/GenericContainer";
+import { BookInfo } from "./components/book-info";
 import { UserInfo } from "./components/user-info";
 
 function App() {
   return (
     <>
       <h1>Hello World</h1>
-      <UserLoader userId="1">
+      <GenericLoader url="/api/current-user" sourceName="user">
         <UserInfo />
-      </UserLoader>
+      </GenericLoader>
+      <GenericLoader url="/api/books/1" sourceName="book">
+        <BookInfo />
+      </GenericLoader>
     </>
   );
 }
