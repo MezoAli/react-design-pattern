@@ -1,18 +1,21 @@
+import { useState } from "react";
 import "./App.css";
-import GenericLoader from "./components/GenericContainer";
-import { BookInfo } from "./components/book-info";
-import { UserInfo } from "./components/user-info";
+import ControlledModal from "./components/ControlledModal";
+
+const Message = () => {
+  const message = window.localStorage.getItem("test");
+  return <h1>{message}</h1>;
+};
 
 function App() {
+  const [show, setShow] = useState(false);
   return (
     <>
       <h1>Hello World</h1>
-      <GenericLoader url="/api/current-user" sourceName="user">
-        <UserInfo />
-      </GenericLoader>
-      <GenericLoader url="/api/books/1" sourceName="book">
-        <BookInfo />
-      </GenericLoader>
+      <button onClick={() => setShow(true)}>Show Modal</button>
+      <ControlledModal show={show} setShow={setShow}>
+        <Message />
+      </ControlledModal>
     </>
   );
 }

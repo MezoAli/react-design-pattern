@@ -18,7 +18,6 @@ const GenericLoader = ({
     const getUser = async () => {
       try {
         const response = await axios.get(`${url}`);
-        console.log(response);
 
         setData(response.data);
       } catch (error) {

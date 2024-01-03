@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { styled } from "styled-components";
 
 const ModalOverlay = styled.div`
@@ -19,15 +18,17 @@ const ModalContent = styled.div`
   background-color: white;
   color: black;
 `;
-const UnControlledModal = ({
+const ControlledModal = ({
   children,
+  show,
+  setShow,
 }: {
-  children: React.PropsWithChildren;
+  children: React.ReactNode;
+  show: boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [show, setShow] = useState(false);
   return (
     <>
-      <button onClick={() => setShow(true)}>Show Modal</button>
       {show && (
         <ModalOverlay onClick={() => setShow(false)}>
           <ModalContent onClick={(e: any) => e.stopPropagation()}>
@@ -41,4 +42,4 @@ const UnControlledModal = ({
   );
 };
 
-export default UnControlledModal;
+export default ControlledModal;
