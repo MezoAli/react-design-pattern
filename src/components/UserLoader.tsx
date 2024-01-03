@@ -3,13 +3,19 @@ import { useEffect, useState } from "react";
 
 import React from "react";
 
-const CurrentUserLoader = ({ children }: { children: React.ReactNode }) => {
+const UserLoader = ({
+  children,
+  userId,
+}: {
+  children: React.ReactNode;
+  userId: string;
+}) => {
   const [user, setUser] = useState<Record<string, any> | null>(null);
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get("/api/current-user");
+        const response = await axios.get(`/api/users/${userId}`);
         console.log(response);
 
         setUser(response.data);
@@ -22,7 +28,7 @@ const CurrentUserLoader = ({ children }: { children: React.ReactNode }) => {
     console.log(children);
 
     getUser();
-  }, []);
+  }, [userId]);
   return (
     <>
       {React.Children.map(children, (child: React.ReactNode) => {
@@ -35,4 +41,4 @@ const CurrentUserLoader = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default CurrentUserLoader;
+export default UserLoader;
