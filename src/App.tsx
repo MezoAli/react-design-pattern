@@ -1,21 +1,15 @@
-import { useState } from "react";
 import "./App.css";
-import ControlledModal from "./components/ControlledModal";
+import { logProps } from "./components/Higher-Order-Component";
+import { BookInfo } from "./components/book-info";
+import { UserInfo } from "./components/user-info";
 
-const Message = () => {
-  const message = window.localStorage.getItem("test");
-  return <h1>{message}</h1>;
-};
-
+const UserInfoWrapper = logProps(UserInfo);
+const BookInfoWrapper = logProps(BookInfo);
 function App() {
-  const [show, setShow] = useState(false);
   return (
     <>
-      <h1>Hello World</h1>
-      <button onClick={() => setShow(true)}>Show Modal</button>
-      <ControlledModal show={show} setShow={setShow}>
-        <Message />
-      </ControlledModal>
+      <UserInfoWrapper sourceName="user" url="/api/current-user" />
+      <BookInfoWrapper sourceName="book" url="/api/books/1" />
     </>
   );
 }
