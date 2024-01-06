@@ -1,11 +1,13 @@
 import "./App.css";
-import RecursiveComponent, { myObject } from "./components/RecursiveComponent";
+import CompoundComponent from "./components/CompoundComponent";
 
 function App() {
   return (
-    <ul>
-      <RecursiveComponent data={myObject} />
-    </ul>
+    <CompoundComponent>
+      <CompoundComponent.Header>Iam Header</CompoundComponent.Header>
+      <CompoundComponent.Body>Iam Body</CompoundComponent.Body>
+      <CompoundComponent.Footer>Iam Footer</CompoundComponent.Footer>
+    </CompoundComponent>
   );
 }
 
