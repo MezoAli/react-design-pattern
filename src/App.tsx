@@ -1,14 +1,8 @@
 import "./App.css";
-import CompoundComponent from "./components/CompoundComponent";
+import ParentComponent from "./components/ParentComponent";
 
 function App() {
-  return (
-    <CompoundComponent>
-      <CompoundComponent.Header>Iam Header</CompoundComponent.Header>
-      <CompoundComponent.Body>Iam Body</CompoundComponent.Body>
-      <CompoundComponent.Footer>Iam Footer</CompoundComponent.Footer>
-    </CompoundComponent>
-  );
+  return <ParentComponent />;
 }
 
 export default App;
