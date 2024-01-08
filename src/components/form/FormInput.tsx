@@ -1,10 +1,10 @@
-import { ChangeEvent, useEffect, useRef } from "react";
+import { ChangeEvent, useEffect, useId, useRef } from "react";
 import Input from "./Input";
 import Dialog from "./Dialog";
-
 const FormInput = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const id = useId();
 
   const handleCloseDialog = () => {
     if (dialogRef?.current) {
@@ -29,8 +29,8 @@ const FormInput = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <Input ref={inputRef} />
+        <label htmlFor={id}>Name</label>
+        <Input ref={inputRef} id={id} />
 
         <button>Show Result</button>
       </form>
