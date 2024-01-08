@@ -1,10 +1,9 @@
 import "./App.css";
-import FormInput from "./components/form/FormInput";
-
+import Parent from "./components/error/Parent";
 function App() {
   return (
     <>
-      <FormInput />
+      <Parent />
     </>
   );
 }

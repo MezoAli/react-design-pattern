@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { ErrorBoundry } from "./lib/ErrorBoundry";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundry fallback={<h1>Error at app level</h1>}>
+      <App />
+    </ErrorBoundry>
   </React.StrictMode>
 );
 
