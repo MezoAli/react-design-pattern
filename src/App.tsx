@@ -1,11 +1,6 @@
 import "./App.css";
-import FormInput from "./components/useImperativeHandle/FormInput";
 function App() {
-  return (
-    <>
-      <FormInput />
-    </>
-  );
+  return <></>;
 }
 
 export default App;
